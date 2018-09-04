@@ -1,5 +1,7 @@
 # 我的交作業流程
 
+作業環境 : Win7 64bit / Cmder
+
 ## Step. 1 - 取得你的 GitClassroom Repository
 
 Slack 聊天室中最上方有個連結<br>
