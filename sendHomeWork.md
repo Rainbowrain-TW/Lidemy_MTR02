@@ -13,6 +13,7 @@ https://docs.google.com/document/d/15JheTGzjOlkeXal6mrrRLKOCrf0xJfvntLHj2B9gx28/
 
 會看到如下圖所示的內容，標紅線的部份會是你的 git 帳號
 ![Imgur](https://i.imgur.com/PztUVED.jpg?1)
+(我的Chrome有裝Dark Reader套件，所以圖片的顏色會不太一樣)
 
 這個 repository 的參與人就是你跟 Huli 老師
 
