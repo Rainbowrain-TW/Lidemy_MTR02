@@ -133,11 +133,14 @@ To https://github.com/Lidemy/mentor-program-2nd-Rainbowrain-TW.git
 這邊會看見 Your branches 跟 Active branches ，目前裡面都是一樣的，兩個紅框的 New pull request選一個點
 ![Imgur](https://i.imgur.com/84gWOMO.jpg)
 
-按著輸入你的要附在 PR 內的訊息，可以輸入 @aszx87410 來標記老師，然後按紅框內的 Create pull request
+按著輸入你的要附在 PR 內的訊息，可以輸入 @aszx87410 來標記老師，然後按紅框內的 Create pull request<br>
+( 9/9 edited: 現在別標記老師囉XD 老師說學生太多了這樣標可能還是會亂掉漏改，記得去填表單 )
 ![Imgur](https://i.imgur.com/pawofwx.jpg)
 
 接著會看見這個畫面，就表示你成功把作業交出去啦～(灑花
 ![Imgur](https://i.imgur.com/uY3R3iy.jpg)
+
+最後記得填寫 [繳交作業表單](https://docs.google.com/forms/d/e/1FAIpQLScBZvCyX64jeV1J912ErvTnSLuv9f3zTdOILnggeLTZ3WCm1w/viewform) 讓老師知道你作業交了
 
 
 
