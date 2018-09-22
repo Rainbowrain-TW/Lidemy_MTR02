@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>title</title>
+  <style type="text/css">
+    html,
+    body {
+      margin: 0px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      color: white;
+      padding: 0px 10px;
+      background: #343a40;
+    }
+
+    .navbar .icon {
+      font-size: 20px;
+      display: inline-block;
+      line-height: 50px;
+    }
+
+    .navbar ul {
+      margin: 0px 0px 0px 5px;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+    }
+
+    .navbar ul li {
+      display: inline-block;
+      margin-left: 15px;
+      color: grey;
+    }
+
+    .navbar ul li:hover {
+      cursor: pointer;
+      color: white;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0px 20px;
+    }
+
+    .hero-unit {
+      margin-top: 50px;
+      padding: 40px 0px;
+      background: #e9ecef;
+    }
+
+    .hero-unit .title {
+      font-size: 72px;
+    }
+
+    .hero-unit .content {
+      font-size: 16px;
+      margin: 10px 0px;
+    }
+
+    .hero-unit .button {
+      background: rgb(0, 123, 255);
+      border-radius: 4px;
+      color: white;
+      font-size: 20px;
+      padding: 15px 20px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .hero-unit .button:hover {
+      cursor: pointer;
+      background: #0069d9;
+    }
+
+    .blocks {
+      margin: 50px 0px;
+    }
+
+    .block {
+      display: inline-block;
+      width: calc((100% - 40px) / 3);
+    }
+
+    .block .title {
+      font-size: 32px;
+    }
+
+    .block .content {
+      font-size: 16px;
+      margin: 10px 0px;
+    }
+
+    .block .button {
+      font-size: 16px;
+      background: rgb(108, 117, 125);
+      padding: 12px 10px;
+      border-radius: 4px;
+      color: white;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .block .button:hover {
+      cursor: pointer;
+      background: #5a6268;
+    }
+
+    .footer {
+      font-size: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 747px) {
+      .block {
+        width: 100%;
+      }
+
+      .block~.block {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="icon">Navbar</div>
+    <ul>
+      <li>Home</li>
+      <li>Link</li>
+    </ul>
+  </div>
+  <div class="hero-unit">
+    <div class="container">
+      <div class="title">Hello, world!</div>
+      <div class="content">
+        This is a template for a simple marketing or informational website. It includes a large callout called a
+        jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+      </div>
+      <div class="button">
+        Learn more &gt;&gt;
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="blocks">
+      <div class="block">
+        <div class="title">
+          Heading
+        </div>
+        <div class="content">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+          Donec sed odio dui.
+        </div>
+        <div class="button">
+          View details &gt;&gt;
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="title">
+          Heading
+        </div>
+        <div class="content">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+          Donec sed odio dui.
+        </div>
+        <div class="button">
+          View details &gt;&gt;
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="title">
+          Heading
+        </div>
+        <div class="content">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+          Donec sed odio dui.
+        </div>
+        <div class="button">
+          View details &gt;&gt;
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      © Company 2017-2018
+    </div>
+  </div>
+
+  <div id="gtx-trans" style="position: absolute; left: 224px; top: 668px;">
+    <div class="gtx-trans-icon"></div>
+  </div>
+</body>
+
+</html>
