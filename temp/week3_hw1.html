@@ -2,239 +2,206 @@
 <html>
 
 <head>
-    <title>仿 ASP.NET</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta property="og:title" content="Week3 Homework1"/>
-    <meta property="og:type" content="html"/>
-    <meta property="og:url" content="https://lidemy.github.io/mentor-program-2nd-Rainbowrain-TW/homeworks/week3/hw2/index.html"/>    
-    <meta property="og:site_name" content="Rain's Homework"/>
-    <style>
-        body {
-            margin: 0px;
-        }
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        .navbar {
-            width: 100%;
-            height: 40px;
-            background-color: #333333;
-
-            float: left;
-        }
-
-        #nav-title {
-            float: left;
-            height: 100%;
-            margin-left: 20px;
-            margin-right: 30px;
-
-
-            color: white;
-            font-size: 26px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-
-            line-height: 40px;
-        }
-
-        #nav-item {
-            float: left;
-            height: 100%;
-            margin-left: 10px;
-            margin-right: 10px;
-
-            color: #777777;
-            font-size: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-
-            line-height: 40px;
-        }
-
-        .upper-container {
-            width: 100%;
-            background-color: #666666;
-
-        }
-
-        .upper-container div {            
-            max-width: 960px;
-            padding: 10px 15px 20px 15px;
-            margin: 0 auto;
-
-            background-color: #666666;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .upper-container div div {
-            margin-top:40px;
-            margin-bottom: -10px;
-            font-size: 80px;                                
-        }
-
-        .upper-container div p {
-            font-size: 16px;            
-        }
-
-        .upper-container div button {
-            width: 160px;
-            height: 53px;
-            background-color: royalblue;
-
-            font-size: 16px;
-            color: white;
-
-            border-radius: 10px;
-            border-style: none;
-            transition: 0.4s;
-        }
-
-        .upper-container div button:hover {
-            cursor: pointer;
-            background-color: rgb(36, 83, 224);
-        }
-
-
-        .lower-container {
-            /* width: 100%; */            
-            height: 33%;
-            /* background-color: #AA8888; */
-            background-color: snow;
-
-        }
-
-        .lower-container div {
-            /* width: 80%;             */
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .lower-container div div {
-            width: 32.5%;            
-            float: left;
-            margin: 0px;
-            
-            margin: 0px 2px 0px 2px;
-
-            /* border: black 1px solid; */
-        }
-        .lower-container div div h1 {
-            font-size: 24px;
-
-        }
-        .lower-container div div p {
-            font-size: 14px;
-            
-        }
-        .lower-container div div button {
-            width: 120px;
-            height: 40px;
-            background-color: gray;
-
-            font-size: 14px;
-            color: white;
-
-            border-radius: 10px;
-            border-style: none;
-            transition: 0.4s;
-        }
-        .lower-container div div button:hover {
-            cursor: pointer;
-            background-color: rgb(95, 95, 95);
-        }
-
-
-        .foot {
-            /*
-            position: absolute;
-            top: 95%;
-            bottom: 0px;
-            */            
-            /* width: 100%; */
-            height: 10%;            
-            background-color: snow;
-        }
-
-        .foot div {
-            max-width: 960px;
-            margin: 0 auto;
-            /* width: 80%; */
-            height: 100%;
-            /* margin-left: 10%; */
-        }
-
-        .foot hr {
-            display: block;
-            height: 1px;
-            border: 0;
-            border-top: 1px solid #777777;
-            margin: 1em 0;
-            padding: 0;
-        }
-
-        @media (max-width: 747px) {
-
-            .lower-container div div{
-                width:100%;
-            }
-
-            .lower-container div div~div{
-                margin-top:20px;
-            }
-            .lower-container {
-                padding-left:20px;
-                padding-right:20px;
-            }
-            .foot{
-                padding-left:20px;
-                padding-right:20px;
-            }
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>title</title>
+  <style type="text/css">
+    html,
+    body {
+      margin: 0px;
     }
-    </style>
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      color: white;
+      padding: 0px 10px;
+      background: #343a40;
+    }
+
+    .navbar .icon {
+      font-size: 20px;
+      display: inline-block;
+      line-height: 50px;
+    }
+
+    .navbar ul {
+      margin: 0px 0px 0px 5px;
+      padding: 0;
+      list-style: none;
+      display: inline-block;
+    }
+
+    .navbar ul li {
+      display: inline-block;
+      margin-left: 15px;
+      color: grey;
+    }
+
+    .navbar ul li:hover {
+      cursor: pointer;
+      color: white;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0px 20px;
+    }
+
+    .hero-unit {
+      margin-top: 50px;
+      padding: 40px 0px;
+      background: #e9ecef;
+    }
+
+    .hero-unit .title {
+      font-size: 72px;
+    }
+
+    .hero-unit .content {
+      font-size: 16px;
+      margin: 10px 0px;
+    }
+
+    .hero-unit .button {
+      background: rgb(0, 123, 255);
+      border-radius: 4px;
+      color: white;
+      font-size: 20px;
+      padding: 15px 20px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .hero-unit .button:hover {
+      cursor: pointer;
+      background: #0069d9;
+    }
+
+    .blocks {
+      margin: 50px 0px;
+    }
+
+    .block {
+      display: inline-block;
+      width: calc((100% - 40px) / 3);
+    }
+
+    .block .title {
+      font-size: 32px;
+    }
+
+    .block .content {
+      font-size: 16px;
+      margin: 10px 0px;
+    }
+
+    .block .button {
+      font-size: 16px;
+      background: rgb(108, 117, 125);
+      padding: 12px 10px;
+      border-radius: 4px;
+      color: white;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .block .button:hover {
+      cursor: pointer;
+      background: #5a6268;
+    }
+
+    .footer {
+      font-size: 16px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 747px) {
+      .block {
+        width: 100%;
+      }
+
+      .block~.block {
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
-<div class="navbar">
-    <span id="nav-title">Navbar</span>
-    <span id="nav-item">Home</span>
-    <span id="nav-item">Link</span>
-    <span id="nav-item">Info</span>
-    <span id="nav-item">About</span>
-</div>
 
-<div class="upper-container">
-    <div class="upper-item">
-        <div>Hello, world!</div>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-                jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-                unique.</p>
-            <button>Learn More >></button>
+<body>
+  <div class="navbar">
+    <div class="icon">Navbar</div>
+    <ul>
+      <li>Home</li>
+      <li>Link</li>
+    </ul>
+  </div>
+  <div class="hero-unit">
+    <div class="container">
+      <div class="title">Hello, world!</div>
+      <div class="content">
+        This is a template for a simple marketing or informational website. It includes a large callout called a
+        jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+      </div>
+      <div class="button">
+        Learn more &gt;&gt;
+      </div>
     </div>
-</div>
+  </div>
+  <div class="container">
+    <div class="blocks">
+      <div class="block">
+        <div class="title">
+          Heading
+        </div>
+        <div class="content">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+          Donec sed odio dui.
+        </div>
+        <div class="button">
+          View details &gt;&gt;
+        </div>
+      </div>
 
-<div class="lower-container">
-    <div>
-        <div class="lower-item">
-            <h1>Heading
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <button>Learn More >></button>
+      <div class="block">
+        <div class="title">
+          Heading
         </div>
-        <div class="lower-item">
-            <h1>Heading
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <button>Learn More >></button>
+        <div class="content">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+          Donec sed odio dui.
         </div>
-        <div class="lower-item">
-            <h1>Heading
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <button>Learn More >></button>
+        <div class="button">
+          View details &gt;&gt;
         </div>
+      </div>
+
+      <div class="block">
+        <div class="title">
+          Heading
+        </div>
+        <div class="content">
+          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+          Donec sed odio dui.
+        </div>
+        <div class="button">
+          View details &gt;&gt;
+        </div>
+      </div>
     </div>
-</div>
-
-<div class="foot">
-    <div>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-        <hr>© Company 2017-2018
+    <div class="footer">
+      © Company 2017-2018
     </div>
-</div>
-
-<body></body>
+  </div>  
+</body>
 
 </html>
