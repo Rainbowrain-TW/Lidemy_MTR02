@@ -51,35 +51,35 @@
 
         .upper-container {
             width: 100%;
-            /* height: 33%; */
             background-color: #666666;
 
         }
 
-        .upper-container div {
-            width: 80%;
-            /* height: 100%; */
-            margin-left: 10%;
+        .upper-container div {            
+            max-width: 960px;
             padding: 10px 15px 20px 15px;
+            margin: 0 auto;
 
             background-color: #666666;
             font-family: 'Times New Roman', Times, serif;
         }
 
-        .upper-container div h1 {
-            font-size: 80px;
+        .upper-container div div {
+            margin-top:40px;
+            margin-bottom: -10px;
+            font-size: 80px;                                
         }
 
         .upper-container div p {
-            font-size: 16px;
+            font-size: 16px;            
         }
 
         .upper-container div button {
-            width: 200px;
-            height: 80px;
+            width: 160px;
+            height: 53px;
             background-color: royalblue;
 
-            font-size: 20px;
+            font-size: 16px;
             color: white;
 
             border-radius: 10px;
@@ -94,7 +94,7 @@
 
 
         .lower-container {
-            width: 100%;
+            /* width: 100%; */            
             height: 33%;
             /* background-color: #AA8888; */
             background-color: snow;
@@ -102,9 +102,9 @@
         }
 
         .lower-container div {
-            width: 80%;            
-            margin-left: 10%;            
-
+            /* width: 80%;             */
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         .lower-container div div {
@@ -147,17 +147,18 @@
             position: absolute;
             top: 95%;
             bottom: 0px;
-            */
-
-            width: 100%;
-            height: 8%;            
+            */            
+            /* width: 100%; */
+            height: 10%;            
             background-color: snow;
         }
 
         .foot div {
-            width: 80%;
+            max-width: 960px;
+            margin: 0 auto;
+            /* width: 80%; */
             height: 100%;
-            margin-left: 10%;
+            /* margin-left: 10%; */
         }
 
         .foot hr {
@@ -178,6 +179,14 @@
             .lower-container div div~div{
                 margin-top:20px;
             }
+            .lower-container {
+                padding-left:20px;
+                padding-right:20px;
+            }
+            .foot{
+                padding-left:20px;
+                padding-right:20px;
+            }
     }
     </style>
 </head>
@@ -191,7 +200,7 @@
 
 <div class="upper-container">
     <div class="upper-item">
-        <h1>Hello, world!
+        <div>Hello, world!</div>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called a
                 jumbotron and three supporting pieces of content. Use it as a starting point to create something more
                 unique.</p>
@@ -221,7 +230,7 @@
 
 <div class="foot">
     <div>
-        &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
         <hr>© Company 2017-2018
     </div>
 </div>
