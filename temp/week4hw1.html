@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <title>Rain's Calculator</title>
+    <style>
+        body {
+            background-color: seagreen;
+        }
+
+        div {
+            border-radius: 6px;
+        }
+
+        .container {
+            width: 400px;
+            height: 500px;
+            margin: 20px auto;
+            border: black 4px solid;
+            border-radius: 6px;
+            background-color: #444;
+            box-sizing: border-box;
+        }
+
+        .monitor {
+            width: 95%;
+            height: 60px;
+            margin: 10px auto;
+            background-color: silver;
+            border-radius: 6px;
+        }
+
+        .modify {
+            width: 95%;
+            margin: 10px auto 5px auto;
+            padding: 5px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .modify>div {
+            width: 24%;
+            height: 40px;
+            background-color: royalblue;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .feature {
+            width: 24%;
+            height: 40px;
+            background-color: pink;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+        }
+
+        .numbers {
+            width: 24%;
+            height: 40px;
+            background-color: #888;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+        }
+        .result{
+            height: 90px;
+        }
+        .board{
+            width: 95%;
+            margin: 0px auto;
+            padding: 0px 5px;
+            
+            display:flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="monitor"></div>
+        <div class="modify">
+            <div class="modify__clear">MC</div>
+            <div class="modify__plus">M+</div>
+            <div class="modify__minus">M-</div>
+            <div class="modify__result">MR</div>
+        </div>
+        <div class="board">
+            <div class="feature">C</div>
+            <div class="feature">±</div>
+            <div class="feature">÷</div>
+            <div class="feature">×</div>
+            <div class="numbers">7</div>
+            <div class="numbers">8</div>
+            <div class="numbers">9</div>
+            <div class="feature">+</div>
+            <div class="numbers">4</div>
+            <div class="numbers">5</div>
+            <div class="numbers">6</div>
+            <div class="feature">-</div>
+            <div class="numbers">1</div>
+            <div class="numbers">2</div>
+            <div class="numbers">3</div>
+            <div class="feature result">=</div>
+            <div class="numbers">0</div>
+            <div class="numbers">00</div>
+            <div class="numbers">.</div>
+        </div>
+    </div>
+</body>
+
+</html>
