@@ -55,6 +55,10 @@
             align-items: center;
             cursor: pointer;
         }
+        .modify>div:hover {
+            background-color: #0c55ea;
+            transition: background 0.3s;
+        }
 
         .feature {
             width: 24%;
@@ -66,6 +70,10 @@
             align-items: center;
             display: flex;
             cursor: pointer;
+        }
+        .feature:hover {
+            background-color: #fd869b;
+            transition: background 0.3s;
         }
 
         .numbers {
@@ -79,11 +87,19 @@
             display: flex;
             cursor: pointer;
         }
+        .numbers:hover {
+            background-color: #555;
+            transition: background 0.3s;
+        }
 
         .result {
             height: 90px;
             background-color: orange;
             cursor: pointer;
+        }
+        .result:hover{
+            background-color: darkorange;
+            transition: background 0.3s;
         }
 
         .board {
@@ -128,7 +144,13 @@
                     currentNumber.push(".");
                     monitor.innerHTML = currentNumber.join('');
                 }
-            } else {
+            } else if (monitor.innerHTML.length === 13) {
+                console.log('數字長度已達上限')
+                monitor.style.color = 'silver';
+                setTimeout(function(){
+                    monitor.style.color = 'black';
+                }, 150)                
+            }else {
                 currentNumber.push(key.innerHTML);
                 monitor.innerHTML = currentNumber.join('');
             }
@@ -142,6 +164,7 @@
                     break;
                 case "C":
                     monitor.innerHTML = 0;
+                    monitor.style.color = 'black';
                     currentNumber = [];
                     currentSign = "";
                     preNumber = 0;
@@ -179,6 +202,9 @@
                 monitor.innerHTML = preNumber;
                 currentNumber = [];
                 currentSign = sign;
+                if (monitor.innerHTML.length > 13) {
+                    monitor.style.color = 'red';
+                }
             }
         }
 
@@ -213,8 +239,8 @@
                     monitor.innerHTML = 0;
                     preNumber = 0;
                     currentNumber = [];
+                    monitor.style.color = 'black';
                     break;
-
             }
         }
 
