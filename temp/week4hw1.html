@@ -122,6 +122,10 @@
         .board__item>div {
             width: 32.43%;
         }
+        .alert{
+            color: red;
+            text-align: center;
+        }
     </style>
     <script>
         /*
@@ -204,6 +208,8 @@
                 currentSign = sign;
                 if (monitor.innerHTML.length > 13) {
                     monitor.style.color = 'red';
+                    document.getElementsByClassName('alert').item(0).innerHTML = "被玩壞惹啦!! 你要對人家負責QAQ";
+                    console.log
                 }
             }
         }
@@ -282,6 +288,7 @@
             </div>
             <div class="feature result" onclick="feature_click(this)">=</div>
         </div>
+        <div class="alert"></div>
     </div>
 </body>
 
