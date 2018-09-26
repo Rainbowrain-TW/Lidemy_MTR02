@@ -188,7 +188,7 @@
 
         //Email驗證
         function checkEmail(ans){
-            if (ans.parentNode.className == 'email'){
+            if (ans.parentNode.className == 'email' && ans.value !== ""){
                 var emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 if (ans.value.search(emailRule) == -1){
                     ans.parentNode.style.background = '#d67e8e';
