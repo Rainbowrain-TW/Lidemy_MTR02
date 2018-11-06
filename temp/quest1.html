@@ -398,8 +398,8 @@
     }
     .tab__content > div {            
         display: none;
-        /* height: 97%;
-        overflow: auto; */
+        height: 97%;
+        overflow: auto;
     }        
     .tab__content {
         border: 1px black solid;
@@ -411,11 +411,44 @@
         padding: 10px 0px;
     }
     /* end tabs 頁籤*/    
+
+/* 實現頁面捲動後前四行 freeze 的效果 */
+
+#show_area table thead tr:nth-child(1) th {
+ position: sticky;
+ top: -11px;
+ background: white;
+}
+#show_area table thead tr:nth-child(2) th{
+ position: sticky;
+ top: 15px;
+ background: white;
+}
+#show_area table thead tr:nth-child(3) th{
+ position: sticky;
+ top: 42px;
+ background: white;
+}
+#show_area table thead tr:nth-child(4) th{
+ position: sticky;
+ top: 69px;
+ background: white;
+}
+
+/* End 實現頁面捲動後前四行 freeze 的效果 */
+
+.navbar {
+    width: 100%;
+    height: 150px;
+    background-color: #444;
+    border: silver 1px solid;
+}
     
 </style>
 </head>
 
 <body>
+    <div class="navbar">test bar</div>
     <div id="show_area">
         <ul class="tabs">
             <li class="active tab D32HZX005">D32HZX005</li>
