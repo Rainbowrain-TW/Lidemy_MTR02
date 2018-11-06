@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        hr{
+        margin-right:10px;
+    }
+
+
+    #head {
+        background-color: gray;
+        color: #e3fde3;
+        height: 110px;
+        width: 100%;
+        margin: 0px;
+        float: left;
+        /* margin-left: 0.25%; */
+        /* margin-top: 5px; */
+        font-family: "CJK-Black", "微軟正黑體";
+        padding-left: 5px;
+        box-sizing: border-box;
+
+        /* border-radius: 10px; */
+    }
+    #head img {
+        padding-right:1px;
+        margin: 0px;
+        transition: all 0.3s;      
+    }
+
+    #head img:hover {
+        transition: all 0.3s;      
+        transform: scale(1.03,1.03);
+        filter: sepia(0.3);
+        -webkit-filter:sepia(0.3);
+    }
+
+    #btnSearchId, #deviceSelect {
+        border:none;
+        padding: 3px;
+        box-shadow: darkslategray 2px 2px 3px;
+        border-radius: 3px;
+        position: relative;
+        top: -1px;
+    }
+    #btnSearchId:hover, #deviceSelect:hover {
+        transition: all 0.3s;            
+        background-color: #bbb;
+    }
+
+    body {
+        background-color: darkgoldenrod;
+        padding: 0px;
+        margin: 0px;
+
+        background: -webkit-radial-gradient(ellipse, #888, gray);
+        background: -o-radial-gradient(ellipse, #518b65, green);
+        background: -moz-radial-gradient(ellipse, #518b65, green);
+        background: radial-gradient(ellipse, #ddd, snow);
+
+        /* background: -webkit-radial-gradient(ellipse, #518b65, green);
+        background: -o-radial-gradient(ellipse, #518b65, green);
+        background: -moz-radial-gradient(ellipse, #518b65, green);
+        background: radial-gradient(ellipse, #518b65, green); */
+    }
+
+    #inputDeviceId {
+        margin-top: 3px;
+        height: 22px;
+    }
+
+    #show_area {            
+        height: 700px;
+        width: 100%;
+        float: left;
+    }
+
+    #show_area table {
+        /* background-color: rgb(43, 139, 223); */
+        background-color: black;
+        border-spacing: 0px;
+        border: 1px solid black;            
+        padding: 0px;
+        margin: 1px;
+        display: inline-table;
+    }
+
+    #show_area table:first-child:nth-last-child(1) {
+        /* width: calc(100%/2); */
+        width: 99%;
+        margin: 10px auto;
+    }
+
+    #show_area table:first-child:nth-last-child(2),
+    #show_area table:first-child:nth-last-child(2)~table {
+        width: calc(100%/2 - 2px);
+    }
+
+    #show_area table:first-child:nth-last-child(3),
+    #show_area table:first-child:nth-last-child(3)~table {
+        width: calc(100%/3 - 2px);
+    }
+
+    #show_area table:first-child:nth-last-child(4),
+    #show_area table:first-child:nth-last-child(4)~table {
+        width: calc(100%/4 - 2px);
+    }
+
+    #show_area table th {
+        border: 1px;
+        border-style: solid;
+        border-color: black;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #show_area table tr td:last-child {
+        display: none;
+    }
+
+    #show_area table tr:first-child {
+        border: 1px;
+        background-color: royalblue;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #show_area table tr:first-child button{            
+        box-shadow: darkslategray 2px 2px 3px;
+        border-radius: 3px;
+    }
+    #show_area table tr:first-child button:hover{
+        transition: all 0.3s;            
+        background-color: #bbb;            
+        border-color: #bbb;
+    }
+    #show_area table tr:first-child div{            
+        line-height:24px;
+        float:right;
+        color:lightblue;
+        font-family:"Arial Rounded MT";
+        margin-right:7px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #show_area table tr:nth-child(2) {
+        border: 1px;
+        background-color: snow;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 0px;
+    }
+    #show_area table tr:nth-child(2) th {            
+        padding: 2px 0px 3px 0px;
+    }
+    #show_area table tr:nth-child(2) input[type="button"]{
+        box-shadow: darkslategray 1px 1px 3px;
+        border-radius: 2px;
+        color: royalblue;
+        background-color: #ccc;
+        border: 1px royalblue solid;
+        transition: all 0.3s;
+        box-sizing: border-box;    
+        position: relative;
+        top: -0.9px;
+    }
+    #show_area table tr:nth-child(2) input[type="button"].insert{
+        color:crimson;
+        font-weight: bold;
+    }
+
+    #show_area table tr:nth-child(3) {
+        border: 1px;
+        background-color: white;
+        margin: 0px;
+        padding: 0px;
+    }
+    #show_area table tr:nth-child(3) th div {
+        display:flex;
+        justify-content: flex-start;
+        padding: 2px 0px;
+    }
+    #show_area table tr:nth-child(3) input[type="button"] {
+        box-shadow: darkslategray 1px 1px 3px;
+        border-radius: 2px;
+        color: royalblue;
+        background-color: #ccc;
+        border: 1px royalblue solid;
+        transition: all 0.3s;
+        box-sizing: border-box;    
+        margin: 0px 2px;        
+    }
+    #show_area table tr:nth-child(3) input[type="button"]:hover {            
+        background-color: #aaaaff;
+        transition: all 0.3s;
+    }
+
+    #show_area table tr:nth-child(4){
+        background-color: royalblue;
+    }
+
+    #show_area table tr:nth-child(2n+6) {
+        border: 1px;
+        background-color: #cdf;
+        margin: 0px;
+        padding: 0px;
+    }
+    #show_area table tr:nth-child(2n+5) {
+        border: 1px;
+        background-color: #eee;
+        margin: 0px;
+        padding: 0px;
+    }
+    #show_area table tr:nth-child(n+5) input[type=button] {
+        cursor: pointer;
+        color: red;
+        background-color: transparent;
+        border: none;
+        font-family:"Arial Rounded MT";
+        font-weight: bold;
+        font-size: 12px;
+    }
+    #show_area table td {
+        border: 1px;
+        border-color: black;
+        border-style: solid;            
+        text-align: center;            
+        font-size: 2vh;
+    }
+    #show_area table td:nth-child(1),#show_area table td:nth-child(7),#show_area table td:nth-child(2) {
+        width: 3rem;         
+    }
+    #show_area table td:nth-child(5){
+        width: 6rem;         
+    }
+    #show_area table td:nth-child(6){
+        width: 5rem;
+    }
+    #show_area table td:nth-child(3){
+        width: 9rem;
+    }
+
+    #show_area table tr td:nth-child(4) *, #show_area table tr td:nth-child(5) *{
+        display: none;
+    }
+    #show_area table tr td:nth-child(4).active *, #show_area table tr td:nth-child(5).active *{
+        display: initial;
+    }
+
+    #show_area input[type="button"]:hover{
+        cursor: pointer;
+    }
+
+    tr:hover td {
+        background-color: palegoldenrod;
+    }
+    h1 {
+        margin: 0px;
+    }
+    .focusTable {
+        background-color: purple;
+    }
+
+    /* 登入視窗 */
+    #device {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 200px;
+        right: 0;
+
+        background-color: cornflowerblue;
+        width: 300px;
+        height: 200px;
+        font-size: 16px;
+        font-family: 微軟正黑體;
+        font-weight: bold;
+        text-align: center;
+        color: #2c2929;
+
+        border: 5px black;
+        border-style: double;
+        border-radius: 10px;
+
+        background: -webkit-linear-gradient(left top, #5da8e6, #2d88e6);
+        background: -o-linear-gradient(bottom right, #5da8e6, #2d88e6);
+        background: -moz-linear-gradient(bottom right, #5da8e6, #2d88e6);
+        background: linear-gradient(to bottom right, #5da8e6, #2d88e6);
+
+        box-shadow: 0px 0px 9px navy;
+    }
+
+    #umessage {
+        display: inline-block;
+        font: bold 10px;
+        color: darkred;
+    }
+
+    #btnLogin {
+        border-radius: 5px;
+        font-weight: bold;
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        font-size: 12px;
+    }
+    #btnLogin:hover {
+        transition: all 0.3s;            
+        background-color: #bbb;
+        border-color: #bbb;
+    }
+
+    #clock {
+        color: silver;
+        float: right;
+        margin-right: 10px;
+    }
+
+    /*Device Selector*/
+    #ds {
+        background-color: #ccffcc;
+        width: 500px;
+        height: 300px;
+        padding: 10px;
+
+        border-radius: 10px;
+        border-style: groove;
+        box-shadow: 2px 2px 5px #228822;
+
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+
+        margin-top: 150px;
+    }
+
+    #ds table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #ds th {
+        width: 33.3%;
+        background-color: seagreen;
+        color: snow;
+    }
+
+    #ds tr:nth-child(odd) {
+        background-color: lightgoldenrodyellow;
+        border-bottom: 1px solid #555;
+    }
+
+    #ds tr:nth-child(even) {
+        background-color: #fff;
+        border-bottom: 1px solid #555;
+    }
+
+    #ds td {
+        width: 33.3%;
+        text-align: center;
+    }
+
+    button {
+        border-radius: 1px;
+        padding: 1px;
+        border-style: solid;
+        box-shadow: 0 0 1px red;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    /*end Device Selector*/
+
+    /* tabs 頁籤*/
+    .tabs{
+        margin: 5px 0px -1px 0px;
+        padding-left: 2px;
+    }
+    .tabs li{
+        background-color: #999;
+        border: black 1px solid;
+        display: inline-block;
+        min-width: 24px;            
+        cursor: pointer;
+        padding: 1px 3px;
+    }
+    .tabs li.active{
+        border-bottom: 1px solid transparent;
+        background-color: white;
+    }
+    .tab__content > div {            
+        display: none;
+        /* height: 97%;
+        overflow: auto; */
+    }        
+    .tab__content {
+        border: 1px black solid;
+        height: calc(100vh - 139px);
+    }        
+    .tab__content div.active{
+        display: block;
+        text-align: center;
+        padding: 10px 0px;
+    }
+    /* end tabs 頁籤*/    
+    
+</style>
+</head>
+
+<body>
+    <div id="show_area">
+        <ul class="tabs">
+            <li class="active tab D32HZX005">D32HZX005</li>
+        </ul>
+        <div class="tab__content">
+            <div class="active page DD32HZX005">
+                <table status="on" id="tD32HZX005">
+                    <thead>
+                        <tr>
+                            <th colspan="7"><span style="line-height:24px">D32HZX005</span>
+                                <div onclick="closeTable(this)" id="cD32HZX005" style="">X</div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7" id="snInputLine">
+                                <div style="display:inline-block;margin-top:3px">
+                                    <p style="display:inline">排程次數: </p><input style="width:27px" type="number" min="1"
+                                        max="9" value="5">
+                                </div>
+                                <div style="display:inline;margin-left:3px">排程樣品: </div><input type="text" id="D32HZX005_sampleInput"
+                                    onkeypress="snInputEnter(this)" onfocus="inputFocused(this)" onblur="inputBlured(this)"
+                                    placeholder="請輸入樣品編號" style=""><input type="button" id="D32HZX005" value="確定"
+                                    onclick="snChecked(this)" class="">
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7">
+                                <div><input type="button" id="D32HZX005_unselectAll" onclick="selectAll(this)" value="全選"><input
+                                        type="button" id="D32HZX005_unselectAll" onclick="unselectAll(this)" value="取消全選"><input
+                                        type="button" id="D32HZX005_insertSwitch" value="插入排程" onclick="insertSwitch(this)"><input
+                                        type="button" onclick="tableSwitch(this)" owner="D32HZX005" value="校正"><input
+                                        type="button" id="D32HZX005_writeToSql" onclick="writeToSql(this)" value="確認選取的資料並上傳"></div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>選取</th>
+                            <th>項次</th>
+                            <th>樣品ID</th>
+                            <th>檢測項目</th>
+                            <th>MIC</th>
+                            <th>檢測數值</th>
+                            <th>刪除</th>
+                            <th style="width:1px;display:none">Timestamp</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>1</td>
+                            <td colspan="1" rowspan="1">890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>2</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>3</td>
+                            <td>890000091832</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>4</td>
+                            <td>890000091832</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>5</td>
+                            <td>890000091832</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>6</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>7</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>8</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>9</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>10</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>11</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>12</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>13</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>14</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>15</td>
+                            <td>890000091833</td>
+                            <td class="active">
+                                <div>Haze </div>
+                            </td>
+                            <td class="active"><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>16</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>17</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>18</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>19</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>20</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>21</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>22</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>23</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>24</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>25</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>26</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>27</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>28</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>29</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>30</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>31</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>32</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>33</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>34</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>35</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>36</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>37</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>38</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>39</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>40</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>41</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>42</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>43</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>44</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>45</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>46</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>47</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>48</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>49</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>50</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>51</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>52</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>53</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>54</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>55</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>56</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>57</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>58</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>59</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>60</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>61</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>62</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>63</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>64</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>65</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>66</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>67</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>68</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>69</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>70</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>71</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>72</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>73</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>74</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>75</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>76</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>77</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>78</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>79</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>80</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>81</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>82</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>83</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>84</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>85</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>86</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>87</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>88</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>89</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>90</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>91</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>92</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>93</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>94</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>95</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>96</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>97</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>98</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>99</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="1" checked=""></td>
+                            <td>100</td>
+                            <td></td>
+                            <td>
+                                <div>Haze </div>
+                            </td>
+                            <td><select onchange="optionChanged(this)">
+                                    <option value="Haze                            ">HAZE0001 </option>
+                                    <option value="T%">HAZE0002</option>
+                                </select></td>
+                            <td></td>
+                            <td><input type="button" onclick="clearRow(this)" value="X"></td>
+                            <td>Analysis Test</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
